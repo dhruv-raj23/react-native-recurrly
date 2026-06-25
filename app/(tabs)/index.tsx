@@ -1,11 +1,14 @@
 import "@/global.css";
+import { Link } from "expo-router";
+import { styled } from "nativewind";
+import { Text } from "react-native";
+import { SafeAreaView as RNSafeAreaView } from "react-native-safe-area-context";
 
-import { Link } from "expo-router"; // Capital "L"
-import { Text, View } from "react-native";
+const SafeAreaView = styled(RNSafeAreaView); // SafeArea wont accept the classnames bcz we have to turn on the styled component from nativewind. So we have to wrap it with styled and then we can use the classnames.
 
 export default function App() {
   return (
-    <View className="flex-1 items-center justify-center bg-background">
+    <SafeAreaView className="flex-1 bg-background p-5">
       <Text className="text-xl font-bold text-success">
         Welcome to Nativewind!
       </Text>
@@ -38,6 +41,6 @@ export default function App() {
       >
         Claude Max Subscription
       </Link>
-    </View>
+    </SafeAreaView>
   );
 }
