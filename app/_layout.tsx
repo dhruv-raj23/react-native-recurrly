@@ -3,6 +3,8 @@ import { useFonts } from "expo-font";
 import { SplashScreen, Stack } from "expo-router";
 import { useEffect } from "react";
 
+SplashScreen.preventAutoHideAsync(); // Prevent the splash screen from auto-hiding
+
 export default function RootLayout() {
   const [fontsLoaded] = useFonts({
     //we are using a usefont hook from expo font. we pass to it an object where keys(-regular, -bold etc) are the names of the fonts you want to use & the values are actual font files. it return a boolean variable that tells us whether the fonts are loaded or not.

@@ -7,6 +7,8 @@ import clsx from "clsx";
 import React from "react";
 import { Image, Pressable, Text, View } from "react-native";
 
+const PLACEHOLDER = "Not provided";
+
 const SubscriptionCard = ({
   name,
   price,
@@ -39,7 +41,7 @@ const SubscriptionCard = ({
             <Text numberOfLines={1} ellipsizeMode="tail" className="sub-meta">
               {category?.trim() ||
                 plan?.trim() ||
-                (renewalDate ? formatSubscriptionDateTime(renewalDate) : "")}
+                formatSubscriptionDateTime(renewalDate)}
             </Text>
           </View>
         </View>
@@ -61,7 +63,7 @@ const SubscriptionCard = ({
                   numberOfLines={1}
                   ellipsizeMode="tail"
                 >
-                  {paymentMethod?.trim()}
+                  {paymentMethod?.trim() || PLACEHOLDER}
                 </Text>
               </View>
             </View>
@@ -74,7 +76,7 @@ const SubscriptionCard = ({
                   numberOfLines={1}
                   ellipsizeMode="tail"
                 >
-                  {category?.trim() || plan?.trim()}
+                  {category?.trim() || plan?.trim() || PLACEHOLDER}
                 </Text>
               </View>
             </View>
@@ -87,7 +89,7 @@ const SubscriptionCard = ({
                   numberOfLines={1}
                   ellipsizeMode="tail"
                 >
-                  {startDate ? formatSubscriptionDateTime(startDate) : ""}
+                  {formatSubscriptionDateTime(startDate)}
                 </Text>
               </View>
             </View>
@@ -100,7 +102,7 @@ const SubscriptionCard = ({
                   numberOfLines={1}
                   ellipsizeMode="tail"
                 >
-                  {renewalDate ? formatSubscriptionDateTime(renewalDate) : ""}
+                  {formatSubscriptionDateTime(renewalDate)}
                 </Text>
               </View>
             </View>
@@ -113,7 +115,7 @@ const SubscriptionCard = ({
                   numberOfLines={1}
                   ellipsizeMode="tail"
                 >
-                  {status ? formatStatusLabel(status) : ""}
+                  {formatStatusLabel(status)}
                 </Text>
               </View>
             </View>
